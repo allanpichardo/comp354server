@@ -167,7 +167,6 @@ module.exports = class ProductController {
                         res.send(Response.makeResponse(false, err.toString()));
                         return;
                     }
-                    let success = !!product;
                     let message = success ? 'Product deleted' : 'Product not deleted';
 
                     res.send(Response.makeResponse(success, message));
