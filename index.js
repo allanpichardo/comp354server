@@ -44,6 +44,10 @@ app.get('/products/:id/', (req, res) => {
     ProductController.getProduct(req, res);
 });
 
+app.delete('/products/:id/', (req, res) => {
+    ProductController.deleteProduct(req, res);
+});
+
 /* Add a new product
 route: /products
 post fields:

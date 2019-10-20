@@ -148,4 +148,28 @@ module.exports = class ProductController {
             res.send(Response.makeResponse(false, e.toString()));
         }
     }
+
+    /**
+     * Delete specific product
+     * @param req
+     * @param res
+     */
+    static deleteProduct(req, res) {
+        try{
+            let id = req.params.id;
+            Product.delete(id, (err) => {
+                if(err) {
+                    res.send(Response.makeResponse(false, err.toString()));
+                    return;
+                }
+
+                res.send(Response.makeResponse(true, `Deleted Product id: ${id}`, null));
+
+            });
+
+        }catch (e) {
+            res.send(Response.makeResponse(false, e.toString()));
+        }
+
+    }
 };
